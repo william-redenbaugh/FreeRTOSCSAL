@@ -3,9 +3,10 @@
 
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
+#include "semphr.h"
 
 typedef struct os_mut_t{
-    xSemaphoreHandle mut;  
+    SemaphoreHandle_t mut;  
 }os_mut_t;
 
 int os_mut_init(os_mut_t *mut);
