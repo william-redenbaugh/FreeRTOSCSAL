@@ -1,0 +1,3 @@
+[submodule "CSAL_SHARED"]
+	path = CSAL_SHARED
+	url = git@github.com:william-redenbaugh/CSAL_SHARED.git
