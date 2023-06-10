@@ -1,11 +1,11 @@
 #ifndef _OS_THREAD_H
 #define _OS_THREAD_H
 
-#include "stdint.h"
-#include "stdbool.h"
-
 #include "FreeRTOS.h"
 #include "task.h"
+
+#include "stdint.h"
+#include "stdbool.h"
 
 typedef struct os_thread_id_s{
     TaskHandle_t handle;

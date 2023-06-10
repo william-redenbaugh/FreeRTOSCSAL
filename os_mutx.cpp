@@ -1,7 +1,7 @@
-#include "os_mutx.h"
-#include "os_error.h"
 #include "FreeRTOS.h"
 #include "semphr.h"
+#include "CSAL_SHARED/os_error.h"
+#include "global_includes.h"
 
 int os_mut_init(os_mut_t *mut){
     if(mut == NULL)
@@ -11,6 +11,16 @@ int os_mut_init(os_mut_t *mut){
 
     if(mut->mut == NULL)
         return OS_RET_NO_MORE_RESOURCES;
+
+    return OS_RET_OK;
+}
+
+int os_mut_deinit(os_mut_t *mut){
+
+    return OS_RET_OK;
+}
+
+int os_mut_tyry_entry(os_mut_t *mut){
 
     return OS_RET_OK;
 }

@@ -9,13 +9,28 @@ typedef struct os_mut_t{
     SemaphoreHandle_t mut;  
 }os_mut_t;
 
+/**
+ * @brief Initializes our mutex
+*/
 int os_mut_init(os_mut_t *mut);
+
+/**
+ * @brief Deinitializes our mutex
+*/
+int os_mut_deinit(os_mut_t *mut);
 
 /**
  * @brief Allows us to acquuire our Mutex
  * @param os_mut_t *pointer to mutex
 */
 int os_mut_entry(os_mut_t *mut, uint32_t timeout_ms);
+
+/**
+ * @brief Try to entry mutex
+ * @param os_mut_t *pointer to mutex
+ * @returns int return status
+*/
+int os_mut_try_entry(os_mut_t *mut);
 
 /**
  * @brief How many re-entrants into the lock
@@ -34,5 +49,6 @@ int os_mut_entry_wait_indefinite(os_mut_t *mut);
  * @param os_mut_t *pointer to mutex
 */
 int os_mut_exit(os_mut_t *mut);
+
 
 #endif

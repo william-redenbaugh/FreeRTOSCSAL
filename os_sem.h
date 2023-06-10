@@ -1,7 +1,6 @@
 #ifndef _SEM_H
 #define _SEM_H
 
-#include "FreeRTOS.h"
 #include "semphr.h"
 
 typedef struct os_sem_t{

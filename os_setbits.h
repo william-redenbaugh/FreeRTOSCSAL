@@ -3,10 +3,7 @@
 
 #include "FreeRTOS.h"
 #include "event_groups.h"
-
-#include "os_error.h"
-#include "stdbool.h"
-#include "stdint.h"
+#include "global_includes.h"
 
 typedef struct os_setbits_t{
     EventGroupHandle_t  event_group;
