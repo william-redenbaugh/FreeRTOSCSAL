@@ -4,13 +4,10 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#include "csal_struct_definitions.h"
+#include "global_includes.h"
 #include "stdint.h"
 #include "stdbool.h"
-
-typedef struct os_thread_id_s{
-    TaskHandle_t handle;
-    StaticTask_t buffer;
-}os_thread_id_s;
 
 /*!
 * @brief  Thread id value

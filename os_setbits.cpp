@@ -1,4 +1,4 @@
-#include "os_setbits.h"
+#include "global_includes.h"
 
 int os_setbits_init(os_setbits_t *mod){
     if(mod == NULL){
