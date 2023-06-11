@@ -20,9 +20,12 @@ int os_mut_deinit(os_mut_t *mut){
     return OS_RET_OK;
 }
 
-int os_mut_tyry_entry(os_mut_t *mut){
+int os_mut_try_entry(os_mut_t *mut){
+    if(xSemaphoreTake(mut->mut, 0) == pdTRUE){
+        return OS_RET_OK;
+    }
 
-    return OS_RET_OK;
+    return OS_RET_MAX_RENTRANT;
 }
 
 int os_mut_entry(os_mut_t *mut, uint32_t timeout_ms){
