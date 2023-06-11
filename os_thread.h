@@ -5,7 +5,6 @@
 #include "task.h"
 
 #include "csal_struct_definitions.h"
-#include "global_includes.h"
 #include "stdint.h"
 #include "stdbool.h"
 

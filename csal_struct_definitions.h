@@ -1,8 +1,6 @@
 #ifndef _CSAL_STRUCT_DEFINITIONS_H
 #define _CSAL_STRUCT_DEFINITIONS_H
 
-#include "global_includes.h"
-
 #include "FreeRTOS.h"
 #include "semphr.h"
 #include "event_groups.h"
