@@ -1,10 +1,10 @@
 #ifndef _CSAL_STRUCT_DEFINITIONS_H
 #define _CSAL_STRUCT_DEFINITIONS_H
 
-#include "FreeRTOS.h"
-#include "semphr.h"
-#include "event_groups.h"
-#include "task.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
+#include "freertos/event_groups.h"
+#include "freertos/task.h"
 
 typedef struct os_mut_t{
     SemaphoreHandle_t mut;  

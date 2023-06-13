@@ -1,6 +1,6 @@
 
-#include "FreeRTOS.h"
-#include "semphr.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
 #include "global_includes.h"
 
 int os_sem_init(os_sem_t *sem, int count){

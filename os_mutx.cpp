@@ -1,5 +1,5 @@
-#include "FreeRTOS.h"
-#include "semphr.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
 #include "CSAL_SHARED/os_error.h"
 #include "global_includes.h"
 

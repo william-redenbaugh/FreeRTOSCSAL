@@ -1,5 +1,6 @@
 #include "os_thread.h"
-
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 os_thread_id_t os_add_thread(thread_func_t p, void * arg, int stack_size, void *stack){
     os_thread_id_t id; 
 
