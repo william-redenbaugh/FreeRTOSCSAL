@@ -14,17 +14,6 @@ os_thread_id_t os_add_thread(thread_func_t p, void *arg, int stack_size, void *s
                     0,
                     &id.handle);
     }
-    else
-    {
-        xTaskCreateStatic(
-            p,
-            "",
-            stack_size,
-            arg,
-            0,
-            (StackType_t *)stack,
-            &id.buffer);
-    }
 
     return id;
 }
