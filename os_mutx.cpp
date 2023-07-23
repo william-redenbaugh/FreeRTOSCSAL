@@ -8,7 +8,7 @@ int os_mut_init(os_mut_t *mut)
     if (mut == NULL)
         return OS_RET_INVALID_PARAM;
 
-    mut->mut = xSemaphoreCreateBinary();
+    mut->mut = xSemaphoreCreateMutex();
 
     if (mut->mut == NULL)
         return OS_RET_NO_MORE_RESOURCES;

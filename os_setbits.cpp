@@ -17,14 +17,14 @@ int os_setbits_init(os_setbits_t *mod)
     return OS_RET_OK;
 }
 
-int os_setbits_signal(os_setbits_t *mod, uint8_t bit)
+int os_setbits_signal(os_setbits_t *mod, int bit)
 {
     if (mod == NULL)
     {
         return OS_RET_NULL_PTR;
     }
 
-    int n = (1 >> bit);
+    int n = bit;
     if (xEventGroupSetBits(mod->event_group, n) == pdTRUE)
     {
         return OS_RET_OK;
@@ -35,14 +35,14 @@ int os_setbits_signal(os_setbits_t *mod, uint8_t bit)
     }
 }
 
-int os_clearbits(os_setbits_t *mod, uint8_t bit)
+int os_clearbits(os_setbits_t *mod, int bit)
 {
     if (mod == NULL)
     {
         return OS_RET_NULL_PTR;
     }
 
-    int n = (1 >> bit);
+    int n = bit;
     if (xEventGroupClearBits(mod->event_group, n) == pdTRUE)
     {
         return OS_RET_OK;
@@ -53,14 +53,14 @@ int os_clearbits(os_setbits_t *mod, uint8_t bit)
     }
 }
 
-int os_waitbits(os_setbits_t *mod, uint8_t bit, uint32_t timeout_ms)
+int os_waitbits(os_setbits_t *mod, int bit, uint32_t timeout_ms)
 {
     if (mod == NULL)
     {
         return OS_RET_NULL_PTR;
     }
 
-    int n = (1 >> bit);
+    int n = bit;
     if (xEventGroupWaitBits(mod->event_group, n, pdFAIL, pdTRUE, timeout_ms / portTICK_PERIOD_MS) == pdTRUE)
     {
         return OS_RET_OK;
@@ -71,15 +71,15 @@ int os_waitbits(os_setbits_t *mod, uint8_t bit, uint32_t timeout_ms)
     }
 }
 
-int os_waitbits_indefinite(os_setbits_t *mod, uint8_t bit)
+int os_waitbits_indefinite(os_setbits_t *mod, int bit)
 {
     if (mod == NULL)
     {
         return OS_RET_NULL_PTR;
     }
 
-    int n = (1 >> bit);
-    if (xEventGroupWaitBits(mod->event_group, n, pdFAIL, pdTRUE, portMAX_DELAY) == pdTRUE)
+    int n = bit;
+    if (xEventGroupWaitBits(mod->event_group, n, pdFAIL, pdFALSE, portMAX_DELAY) == pdTRUE)
     {
         return OS_RET_OK;
     }
