@@ -79,7 +79,7 @@ int os_waitbits_indefinite(os_setbits_t *mod, int bit)
     }
 
     int n = bit;
-    if (xEventGroupWaitBits(mod->event_group, n, pdFAIL, pdFALSE, portMAX_DELAY) == pdTRUE)
+    if (xEventGroupWaitBits(mod->event_group, n, pdFALSE, pdFALSE, portMAX_DELAY) == pdTRUE)
     {
         return OS_RET_OK;
     }

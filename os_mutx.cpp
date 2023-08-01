@@ -52,7 +52,7 @@ int os_mut_count(os_mut_t *mut)
     if (mut == NULL)
         return OS_RET_INVALID_PARAM;
 
-    return uxSemaphoreGetCount(mut->mut);
+    return !uxSemaphoreGetCount(mut->mut);
 }
 
 int os_mut_entry_wait_indefinite(os_mut_t *mut)

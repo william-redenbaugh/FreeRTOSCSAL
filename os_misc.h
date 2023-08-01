@@ -8,7 +8,7 @@
 
 // Macro: print(e)
 // Description: Prints the given expression.
-#define print(e) Serial.printf(e)
+#define print(e...) Serial.printf(e)
 
 // Macro: os_printf(e)
 // Description: Prints the formatted output using the Serial.printf function.
