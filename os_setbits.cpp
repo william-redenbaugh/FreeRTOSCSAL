@@ -1,5 +1,13 @@
 #include "global_includes.h"
 
+#define SETBITS_DEBUGGING
+#ifdef SETBITS_DEBUGGING
+#define setbits_println(e...) \
+    print(e);                 \
+    print("\n")
+#else
+#define setbits_println(e...) void(e)
+#endif
 int os_setbits_init(os_setbits_t *mod)
 {
     if (mod == NULL)
@@ -11,6 +19,7 @@ int os_setbits_init(os_setbits_t *mod)
 
     if (mod->event_group == NULL)
     {
+        setbits_println("No more resources for setbits module");
         return OS_RET_NO_MORE_RESOURCES;
     }
 
@@ -23,34 +32,23 @@ int os_setbits_signal(os_setbits_t *mod, int bit)
     {
         return OS_RET_NULL_PTR;
     }
-
     int n = bit;
-    if (xEventGroupSetBits(mod->event_group, n) == pdTRUE)
-    {
-        return OS_RET_OK;
-    }
-    else
-    {
-        return OS_RET_INT_ERR;
-    }
+    xEventGroupSetBits(mod->event_group, n);
+
+    return OS_RET_OK;
 }
 
 int os_clearbits(os_setbits_t *mod, int bit)
 {
     if (mod == NULL)
     {
+        setbits_println("Null pointer to setbits module");
         return OS_RET_NULL_PTR;
     }
-
     int n = bit;
-    if (xEventGroupClearBits(mod->event_group, n) == pdTRUE)
-    {
-        return OS_RET_OK;
-    }
-    else
-    {
-        return OS_RET_INT_ERR;
-    }
+    xEventGroupClearBits(mod->event_group, n);
+
+    return OS_RET_OK;
 }
 
 int os_waitbits(os_setbits_t *mod, int bit, uint32_t timeout_ms)
@@ -61,14 +59,8 @@ int os_waitbits(os_setbits_t *mod, int bit, uint32_t timeout_ms)
     }
 
     int n = bit;
-    if (xEventGroupWaitBits(mod->event_group, n, pdFAIL, pdTRUE, timeout_ms / portTICK_PERIOD_MS) == pdTRUE)
-    {
-        return OS_RET_OK;
-    }
-    else
-    {
-        return OS_RET_INT_ERR;
-    }
+    xEventGroupWaitBits(mod->event_group, n, pdFAIL, pdTRUE, timeout_ms / portTICK_PERIOD_MS);
+    return OS_RET_OK;
 }
 
 int os_waitbits_indefinite(os_setbits_t *mod, int bit)
@@ -77,14 +69,7 @@ int os_waitbits_indefinite(os_setbits_t *mod, int bit)
     {
         return OS_RET_NULL_PTR;
     }
-
     int n = bit;
-    if (xEventGroupWaitBits(mod->event_group, n, pdFALSE, pdFALSE, portMAX_DELAY) == pdTRUE)
-    {
-        return OS_RET_OK;
-    }
-    else
-    {
-        return OS_RET_INT_ERR;
-    }
+    xEventGroupWaitBits(mod->event_group, n, pdFALSE, pdFALSE, portMAX_DELAY);
+    return OS_RET_OK;
 }
