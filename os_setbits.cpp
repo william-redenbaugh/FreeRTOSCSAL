@@ -26,6 +26,12 @@ int os_setbits_init(os_setbits_t *mod)
     return OS_RET_OK;
 }
 
+int os_setbits_deconstruct(os_setbits_t *mod){
+    vEventGroupDelete(mod->event_group);
+
+    return OS_RET_OK;
+}
+
 int os_setbits_signal(os_setbits_t *mod, int bit)
 {
     if (mod == NULL)
