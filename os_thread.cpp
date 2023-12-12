@@ -39,6 +39,10 @@ os_thread_id_t os_kill_thread(os_thread_id_t target_thread_id)
     return target_thread_id;
 }
 
+bool os_cmp_id(os_thread_id_t thread_one_id, os_thread_id_t thread_two_id){
+    return thread_one_id.handle == thread_two_id.handle;
+}
+
 os_thread_id_t os_current_id(void)
 {
     os_thread_id_t id;

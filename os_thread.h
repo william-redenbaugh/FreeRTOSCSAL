@@ -60,6 +60,12 @@ os_thread_id_t os_kill_thread(os_thread_id_t target_thread_id);
  */
 os_thread_id_t os_current_id(void);
 
+/**
+ * @brief True if two task IDs are equal.
+ * @note can't check directly because of platform dependant structures
+*/
+bool os_cmp_id(os_thread_id_t thread_one_id, os_thread_id_t thread_two_id);
+
 /*!
  * @brief Kills and closes out current thread
  */
