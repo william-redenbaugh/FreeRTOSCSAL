@@ -18,7 +18,7 @@ int os_mut_init(os_mut_t *mut)
 
 int os_mut_deinit(os_mut_t *mut)
 {
-
+    vSemaphoreDelete(mut->mut);
     return OS_RET_OK;
 }
 
