@@ -8,7 +8,7 @@ int os_timer_init(os_timer_t *timer, os_timer_cb_t cb, int interval_ms)
     }
 
     timer->timer = xTimerCreate("",
-                                interval_ms / portTICK_RATE_MS,
+                                interval_ms / portTICK_PERIOD_MS,
                                 pdTRUE,
                                 0,
                                 (TimerCallbackFunction_t)cb);

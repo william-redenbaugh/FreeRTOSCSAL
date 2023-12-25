@@ -13,7 +13,7 @@ os_thread_id_t os_add_thread(thread_func_t p, void *arg, int stack_size, void *s
                     arg,
                     32,
                     &id.handle, 
-                    0);
+                    1);
     }
 
     return id;
