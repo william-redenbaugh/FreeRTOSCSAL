@@ -28,6 +28,8 @@ typedef struct os_thread_id_s
     StaticTask_t buffer;
 } os_thread_id_s;
 
+#define DEFAULT_THREAD_HANDLE {.handle=NULL, .buffer = StaticTask_t()}
+
 typedef TimerHandle_t timer_cb_param_t;
 
 /**
