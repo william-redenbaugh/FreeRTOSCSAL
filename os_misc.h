@@ -8,10 +8,10 @@
 
 // Macro: print(e)
 // Description: Prints the given expression.
-#define print(...) Serial.printf(__VA_ARGS__)
+#define print(...) os_printf(__VA_ARGS__)
 
 // Macro: os_printf(e)
-// Description: Prints the formatted output using the Serial.printf function.
+// Description: Prints the formatted output using the os_printf function.
 #define os_printf(...) printf(__VA_ARGS__)
 
 #endif
