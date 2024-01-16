@@ -7,13 +7,12 @@ os_thread_id_t os_add_thread(thread_func_t p, void *arg, int stack_size, void *s
 
     if (stack == NULL)
     {
-        xTaskCreatePinnedToCore(p,
+        xTaskCreate(p,
                     "",
                     stack_size,
                     arg,
                     32,
-                    &id.handle, 
-                    1);
+                    &id.handle);
     }
 
     return id;
