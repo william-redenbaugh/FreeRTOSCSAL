@@ -2,9 +2,9 @@
 
 #define SETBITS_DEBUGGING
 #ifdef SETBITS_DEBUGGING
-#define setbits_println(e...) \
-    print(e);                 \
-    print("\n")
+#define setbits_println(...) \
+    os_printf(__VA_ARGS__);                 \
+    os_printf("\n")
 #else
 #define setbits_println(e...) void(e)
 #endif
