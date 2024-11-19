@@ -17,7 +17,16 @@
 // Description: Prints the formatted output using the os_printf function.
 #define os_printf(...) printf(__VA_ARGS__)
 
-#else
+#ifndef OS_ASSERT
+#define OS_ASSERT(val) \
+    if(val) {   \
+    while(true){\
+                \
+    }           \
+    }           \
+
+#endif
+#else 
 #include "Arduino.h"
 // Macro: println(e)
 // Description: Prints the given expression followed by a newline character.

@@ -92,4 +92,9 @@ void os_kill_self_thread(void);
  *   @note Call's hypervisor command to look into something else.
  */
 #define _os_yield() portYIELD()
+
+#ifndef get_current_time_millis
+#define get_current_time_millis() (xTaskGetTickCount() * (1/configTICK_RATE_HZ) * 1000)
+#endif
+
 #endif
