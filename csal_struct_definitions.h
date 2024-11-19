@@ -1,12 +1,21 @@
 #ifndef _CSAL_STRUCT_DEFINITIONS_H
 #define _CSAL_STRUCT_DEFINITIONS_H
 
+#include "project_defs.h"
+
+#ifdef PICO_MODULE
+#include "FreeRTOS.h"
+#include "semphr.h"
+#include "event_groups.h"
+#include "task.h"
+#include "timers.h"
+#else 
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 #include "freertos/event_groups.h"
 #include "freertos/task.h"
 #include "freertos/timers.h"
-
+#endif
 typedef struct os_mut_t
 {
     SemaphoreHandle_t mut;

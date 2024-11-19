@@ -1,5 +1,13 @@
+#include "project_defs.h"
+
+#ifdef PICO_MODULE
+#include "FreeRTOS.h"
+#include "semphr.h"
+#else
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
+#endif
+
 #include "CSAL_SHARED/os_error.h"
 #include "global_includes.h"
 

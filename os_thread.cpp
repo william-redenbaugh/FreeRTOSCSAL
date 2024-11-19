@@ -1,6 +1,16 @@
 #include "os_thread.h"
+
+#include "project_defs.h"
+
+#ifdef PICO_MODULE
+#include "FreeRTOS.h"
+#include "task.h"
+#else
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#endif
+
+
 os_thread_id_t os_add_thread(thread_func_t p, void *arg, int stack_size, void *stack)
 {
     os_thread_id_t id;

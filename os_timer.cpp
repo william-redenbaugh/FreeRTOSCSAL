@@ -1,3 +1,13 @@
+#include "project_defs.h"
+
+#ifdef PICO_MODULE
+#include "FreeRTOS.h"
+#include "timers.h"
+#else
+#include "freertos/FreeRTOS.h"
+#include "freertos/timers.h"
+#endif
+
 #include "global_includes.h"
 
 int os_timer_init(os_timer_t *timer, os_timer_cb_t cb, int interval_ms)

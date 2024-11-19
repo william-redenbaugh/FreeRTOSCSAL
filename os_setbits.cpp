@@ -1,3 +1,16 @@
+#include "project_defs.h"
+
+#ifdef PICO_MODULE
+#include "FreeRTOS.h"
+#include "event_groups.h"
+#else
+#include "freertos/FreeRTOS.h"
+#include "freertos/event_groups.h"
+#endif
+
+#include "global_includes.h"
+
+
 #include "global_includes.h"
 
 #define SETBITS_DEBUGGING
