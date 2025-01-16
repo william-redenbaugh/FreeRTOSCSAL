@@ -1,8 +1,16 @@
 #ifndef _OS_THREAD_H
 #define _OS_THREAD_H
 
+#include "project_defs.h"
+
+#ifdef PLATFORM_ESP32
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#else
 #include "FreeRTOS.h"
 #include "task.h"
+#endif
+
 
 #include "csal_struct_definitions.h"
 #include "stdint.h"
