@@ -26,7 +26,36 @@
     }           \
 
 #endif
-#else 
+#endif
+
+#ifdef PLATFORM_ESP32
+
+#include <cstdio>
+
+#define println(...) printf(__VA_ARGS__); printf("\n")
+
+// Macro: print(e)
+// Description: Prints the given expression.
+#define print(...) os_printf(__VA_ARGS__)
+
+#define os_println(...) println(__VA_ARGS__)
+// Macro: os_printf(e)
+// Description: Prints the formatted output using the os_printf function.
+#define os_printf(...) printf(__VA_ARGS__)
+
+#ifndef OS_ASSERT
+#define OS_ASSERT(val) \
+    if(val) {   \
+    while(true){\
+                \
+    }           \
+    }           \
+
+#endif
+#endif
+
+#if !defined(PLATFORM_ESP32) && !defined(PICO_MODULE)
+
 #include "Arduino.h"
 // Macro: println(e)
 // Description: Prints the given expression followed by a newline character.
