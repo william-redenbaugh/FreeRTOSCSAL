@@ -17,6 +17,9 @@
 // Description: Prints the formatted output using the os_printf function.
 #define os_printf(...) printf(__VA_ARGS__)
 
+#define os_println(...) println(__VA_ARGS__)
+
+
 #ifndef OS_ASSERT
 #define OS_ASSERT(val) \
     if(val) {   \
